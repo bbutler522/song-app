@@ -28,6 +28,17 @@ Controller for the discover page
   ];
 
   $scope.currentSong = angular.copy($scope.songs[0]);
+
+  // fired when we favorite / skip a song.
+  $scope.sendFeedback = function (bool) {
+
+    // set the current song to one of our three songs
+    var randomSong = Math.round(Math.random() * ($scope.songs.length - 1));
+
+    // update current song in scope
+    $scope.currentSong = angular.copy($scope.songs[randomSong]);
+
+  }
 })
 
 
