@@ -23,6 +23,16 @@ Controller for the discover page
     // prepare the next song
     Recommendations.nextSong();
 
+    // used for retrieving the next album image.
+    // if there isn't an album image available next, return empty string.
+    $scope.nextAlbumImg = function() {
+      if (Recommendations.queue.length > 1) {
+        return Recommendations.queue[1].image_large;
+      }
+
+      return '';
+    }
+
     $timeout(function() {
       // $timeout to allow animation to complete
       $scope.currentSong = Recommendations.queue[0];
